@@ -58,16 +58,13 @@ function CustomizationScreen({ selected, onSelect, onBuy, onBack }) {
         }}>Дизайн и имя SIM</span>
       </div>
 
-      {/* Scrollable content */}
-      <div style={{
-        flex: 1, overflowY: 'auto', scrollbarWidth: 'none',
-        padding: '8px 16px 100px',
-        display: 'flex', flexDirection: 'column', gap: 18,
-      }}>
-        {/* SIM plaque preview (live updates with selection) */}
+      {/* Sheet area — relative container holding plaque (behind) + scrollable sheet (in front) */}
+      <div style={{ flex: 1, position: 'relative', overflow: 'hidden' }}>
+
+        {/* SIM plaque preview — pinned absolutely behind scrollable, z-index 0 */}
         <div style={{
-          height: 94, flexShrink: 0, margin: '0 12px',
-          borderRadius: 18, overflow: 'hidden', position: 'relative',
+          position: 'absolute', top: 8, left: 12, right: 12, height: 94, zIndex: 0,
+          borderRadius: 18, overflow: 'hidden',
           backgroundImage: `url("${previewWide}")`,
           backgroundSize: 'cover', backgroundPosition: 'center',
           backgroundColor: '#1E1E1E',
@@ -86,18 +83,34 @@ function CustomizationScreen({ selected, onSelect, onBuy, onBack }) {
           </div>
         </div>
 
-        {/* "Имя SIM" mock input */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-          <span style={{ fontFamily: 'var(--t2-font-body)', fontSize: 12, color: '#9196A1' }}>Имя SIM</span>
-          <div style={{
-            background: '#1E1E1E', borderRadius: 12, height: 44,
-            display: 'flex', alignItems: 'center', padding: '0 14px',
-            color: '#fff', fontFamily: 'var(--t2-font-body)', fontSize: 15,
-          }}>Мой номер</div>
-        </div>
+        {/* Scrollable sheet — absolute, in front of plaque, z-index 1 */}
+        <div style={{
+          position: 'absolute', inset: 0, overflowY: 'auto', scrollbarWidth: 'none',
+          zIndex: 1,
+        }}>
+          {/* Transparent spacer — exposes plaque underneath when at top of scroll */}
+          <div style={{ height: 110 }} />
 
-        {/* Exclusive designs — 3×3 grid */}
-        <section>
+          {/* Sheet — opaque BG covers plaque on scroll-up, rounded top edge */}
+          <div style={{
+            background: '#0E0E0E',
+            borderTopLeftRadius: 20, borderTopRightRadius: 20,
+            padding: '18px 16px 100px',
+            display: 'flex', flexDirection: 'column', gap: 18,
+            minHeight: 'calc(100% + 1px)',
+          }}>
+            {/* "Имя SIM" mock input */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+              <span style={{ fontFamily: 'var(--t2-font-body)', fontSize: 12, color: '#9196A1' }}>Имя SIM</span>
+              <div style={{
+                background: '#1E1E1E', borderRadius: 12, height: 44,
+                display: 'flex', alignItems: 'center', padding: '0 14px',
+                color: '#fff', fontFamily: 'var(--t2-font-body)', fontSize: 15,
+              }}>Мой номер</div>
+            </div>
+
+            {/* Exclusive designs — 3×3 grid */}
+            <section>
           <h3 className="t2-h3" style={{ marginBottom: 12 }}>Эксклюзивный дизайн</h3>
           <div style={{
             display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10,
@@ -136,7 +149,12 @@ function CustomizationScreen({ selected, onSelect, onBuy, onBack }) {
             })}
           </div>
         </section>
+          </div>
+          {/* end sheet */}
+        </div>
+        {/* end scrollable */}
       </div>
+      {/* end sheet area */}
 
       {/* Sticky CTA */}
       <div style={{
@@ -158,7 +176,7 @@ function CustomizationScreen({ selected, onSelect, onBuy, onBack }) {
           onMouseUp={(e) => e.currentTarget.style.transform = 'scale(1)'}
           onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
         >
-          {selectedDesign ? `КУПИТЬ ЗА ${ctaPrice} ГБ` : 'ВЫБЕРИТЕ ДИЗАЙН'}
+          {selectedDesign ? `ОБМЕНЯТЬ ${ctaPrice} ГБ` : 'ВЫБЕРИТЕ ДИЗАЙН'}
         </button>
       </div>
       <window.HomeIndicator dark />

@@ -19,6 +19,11 @@ const DESIGNS = [
   { id: 'anime',     name: 'Аниме',                tier: 'premium', square: 'assets/skins/anime-square.png',     wide: 'assets/skins/anime-wide.png' },
   { id: 'duck',      name: 'Утка нуар',            tier: 'premium', square: 'assets/skins/duck-square.png',      wide: 'assets/skins/duck-wide.png' },
   { id: 'silver',    name: 'Жидкое серебро',       tier: 'premium', square: 'assets/skins/silver-square.png',    wide: 'assets/skins/silver-wide.png' },
+
+  // hero tier — fixed 100 ГБ in all cohorts
+  { id: 'bat',       name: 'Летучая мышь (Герой)', tier: 'hero',    square: 'assets/skins/bat-square.png',       wide: 'assets/skins/bat-wide.png' },
+  { id: 'catmoon',   name: 'Лунный кот (Астронавт)', tier: 'hero',  square: 'assets/skins/catmoon-square.png',   wide: 'assets/skins/catmoon-wide.png' },
+  { id: 'hawk',      name: 'Ястреб (Авангард)',    tier: 'hero',    square: 'assets/skins/hawk-square.png',      wide: 'assets/skins/hawk-wide.png' },
 ];
 
 // ============================================================
@@ -26,9 +31,9 @@ const DESIGNS = [
 //    A — low / B — middle (control) / C — high
 // ============================================================
 const PRICES = {
-  A: { basic: 10, middle: 25, premium: 50  },
-  B: { basic: 25, middle: 50, premium: 75  },
-  C: { basic: 50, middle: 75, premium: 100 },
+  A: { basic: 10, middle: 25, premium: 50,  hero: 100 },
+  B: { basic: 25, middle: 50, premium: 75,  hero: 100 },
+  C: { basic: 50, middle: 75, premium: 100, hero: 100 },
 };
 
 // ============================================================

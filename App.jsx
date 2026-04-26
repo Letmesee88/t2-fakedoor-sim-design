@@ -1,8 +1,8 @@
-// App.jsx — top-level shell with hash routing across 4 screens.
-// Routes: '' (banner) | 'customize' | 'disclosure' | 'final'
+// App.jsx — top-level shell with hash routing across 3 screens.
+// Routes: '' (home) | 'customize' | 'disclosure'
 // Slide transition (iOS-style): forward = enter from right, back = enter from left.
 
-const ROUTE_ORDER = ['', 'customize', 'disclosure', 'final'];
+const ROUTE_ORDER = ['', 'customize', 'disclosure'];
 const TRANSITION_MS = 320;
 
 const routeFromHash = () => (window.location.hash.replace(/^#\/?/, '').split('?')[0]) || '';
@@ -61,11 +61,9 @@ function App() {
         return (
           <window.DisclosureScreen
             designId={selectedDesignId}
-            onDone={() => navigate('final')}
+            onDone={() => navigate('')}
           />
         );
-      case 'final':
-        return <window.FinalScreen />;
       default:
         return <window.HomeScreen onBannerTap={() => navigate('customize')} />;
     }
