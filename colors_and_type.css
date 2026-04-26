@@ -1,0 +1,163 @@
+/* ============================================================
+   t2 (Tele2 Russia) Design System — Colors & Type
+   ============================================================ */
+
+/* --- T2 brand web fonts (real .woff2 from t2-design-system/project/Fonts) ---
+   T2 Halvar Breit ExtraBold — display / headings / numbers
+   T2 Rooftop Regular/Medium — body / decorative SIM-card name
+   Google Fonts (Archivo Black, Manrope) kept as fallbacks if local fonts fail. */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@font-face {
+  font-family: 'T2 Halvar Breit';
+  src: url('assets/fonts/T2HalvarBreit-ExtraBold.woff2') format('woff2'),
+       url('assets/fonts/T2HalvarBreit-ExtraBold.woff')  format('woff');
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'T2 Rooftop';
+  src: url('assets/fonts/t2-Rooftop-Regular.woff2') format('woff2'),
+       url('assets/fonts/t2-Rooftop-Regular.woff')  format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'T2 Rooftop';
+  src: url('assets/fonts/t2-Rooftop-Medium.woff2') format('woff2'),
+       url('assets/fonts/t2-Rooftop-Medium.woff')  format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ────────────── BRAND COLORS ────────────── */
+  --t2-black:        rgb(0, 0, 0);          /* #000000 — primary brand surface */
+  --t2-white:        rgb(255, 255, 255);    /* #FFFFFF */
+  --t2-lime:         rgb(167, 252, 0);      /* #A7FC00 — signature accent */
+  --t2-pink:         rgb(255, 52, 149);     /* #FF3495 — secondary accent */
+
+  /* ────────────── SURFACES & TEXT (DARK MODE) ────────────── */
+  --t2-bg:           rgb(0, 0, 0);          /* page background (default dark) */
+  --t2-bg-elev1:     rgb(30, 30, 30);       /* search inputs, cards on dark */
+  --t2-bg-elev2:     rgb(45, 45, 45);
+  --t2-fg:           rgb(255, 255, 255);    /* primary text on dark */
+  --t2-fg-muted:     rgb(179, 179, 179);    /* placeholder, secondary on dark */
+  --t2-fg-subtle:    rgb(145, 150, 161);    /* tab labels inactive */
+  --t2-stroke-dark:  rgb(82, 87, 99);       /* icons in dark inputs */
+
+  /* ────────────── SURFACES & TEXT (LIGHT MODE / SHEETS) ────────────── */
+  --t2-sheet:        rgb(255, 255, 255);    /* white sheet bg */
+  --t2-sheet-fg:     rgb(0, 0, 0);
+  --t2-sheet-muted:  rgb(128, 128, 128);    /* secondary text on white */
+  --t2-divider:      rgb(217, 217, 217);    /* light dividers */
+
+  /* ────────────── ACCENT VARIATIONS ────────────── */
+  --t2-pink-deep:    rgb(80, 17, 47);       /* dark berry — used at low opacity */
+  --t2-pink-bg:      rgba(255, 52, 149, 0.6);  /* pink glow / blob */
+
+  /* gradient family — warm card (SIM card pattern) */
+  --t2-warm-1:       rgb(255, 105, 0);
+  --t2-warm-2:       rgb(255, 173, 51);
+  --t2-warm-3:       rgb(255, 206, 132);
+  --t2-warm-grad:    linear-gradient(180deg, var(--t2-warm-1) 0%, var(--t2-warm-2) 50%, var(--t2-warm-3) 100%);
+
+  /* gradient family — cool card */
+  --t2-cool-1:       rgb(0, 191, 255);
+  --t2-cool-2:       rgb(39, 189, 245);
+  --t2-cool-3:       rgb(110, 216, 255);
+  --t2-cool-grad:    linear-gradient(180deg, var(--t2-cool-1) 0%, var(--t2-cool-2) 50%, var(--t2-cool-3) 100%);
+
+  /* pink card */
+  --t2-pink-card:    rgb(255, 102, 175);
+
+  /* signal red (for notification dots / alerts) */
+  --t2-signal:       rgb(238, 47, 83);
+
+  /* ────────────── SHADOWS / EFFECTS ────────────── */
+  --t2-shadow-sm:    0 2px 6px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.03);
+  --t2-shadow-md:    0 6px 16px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+
+  /* ────────────── BORDER RADII ────────────── */
+  --t2-r-pill:       999px;
+  --t2-r-xl:         16px;   /* cards, sheets */
+  --t2-r-lg:         12px;   /* buttons, inputs */
+  --t2-r-md:         8px;
+  --t2-r-sm:         4px;
+
+  /* ────────────── SPACING (4-pt grid) ────────────── */
+  --t2-sp-1:  4px;
+  --t2-sp-2:  8px;
+  --t2-sp-3:  12px;
+  --t2-sp-4:  16px;   /* default screen padding */
+  --t2-sp-5:  20px;
+  --t2-sp-6:  24px;
+  --t2-sp-8:  32px;
+  --t2-sp-10: 40px;
+
+  /* ────────────── TYPOGRAPHY FAMILIES ────────────── */
+  --t2-font-display: 'T2 Halvar Breit', 'Archivo Black', 'Inter', system-ui, sans-serif;
+  --t2-font-body:    'T2 Rooftop', 'Manrope', system-ui, sans-serif;
+
+  /* ────────────── TYPE TOKENS ────────────── */
+  /* All-caps display ("ОТПРАВИТЬ" buttons, big phone numbers) */
+  --t2-h1-size:      28px;
+  --t2-h1-lh:        32px;
+  --t2-h2-size:      22px;
+  --t2-h2-lh:        24px;
+  --t2-h3-size:      18px;
+  --t2-h3-lh:        20px;
+  --t2-h5-size:      16px;
+  --t2-h5-lh:        14px;
+
+  /* Body */
+  --t2-body-size:    15px;
+  --t2-body-lh:      22px;
+  --t2-tiny-size:    12px;
+  --t2-tiny-lh:      16px;
+  --t2-button-size:  16px;
+  --t2-button-lh:    18px;
+}
+
+/* ============================================================
+   SEMANTIC TYPE CLASSES
+   ============================================================ */
+.t2-display,
+.t2-h1, .t2-h2, .t2-h3, .t2-h5,
+.t2-button-label {
+  font-family: var(--t2-font-display);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: inherit;
+  margin: 0;
+}
+
+.t2-h1 { font-size: var(--t2-h1-size); line-height: var(--t2-h1-lh); }
+.t2-h2 { font-size: var(--t2-h2-size); line-height: var(--t2-h2-lh); }
+.t2-h3 { font-size: var(--t2-h3-size); line-height: var(--t2-h3-lh); }
+.t2-h5 { font-size: var(--t2-h5-size); line-height: var(--t2-h5-lh); text-transform: none; }
+
+.t2-button-label {
+  font-size: var(--t2-button-size);
+  line-height: var(--t2-button-lh);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.t2-body, .t2-tiny, .t2-caption {
+  font-family: var(--t2-font-body);
+  font-weight: 400;
+  color: inherit;
+  margin: 0;
+}
+
+.t2-body    { font-size: var(--t2-body-size); line-height: var(--t2-body-lh); }
+.t2-body-md { font-size: var(--t2-body-size); line-height: var(--t2-body-lh); font-weight: 500; }
+.t2-tiny    { font-size: var(--t2-tiny-size); line-height: var(--t2-tiny-lh); }
+.t2-caption { font-size: 11px; line-height: 14px; letter-spacing: 0.02em; }
+
+/* utility */
+.t2-mono-num { font-feature-settings: 'tnum' 1; font-variant-numeric: tabular-nums; }

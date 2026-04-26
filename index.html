@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Эксклюзивный дизайн SIM — t2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="description" content="Прототип эксперимента: обмен ГБ на эксклюзивный дизайн SIM (t2).">
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 0; min-height: 100vh; background: #1c1c1e; font-family: var(--t2-font-body); }
+  *, *::before, *::after { box-sizing: border-box; }
+  button { font-family: inherit; }
+  input::placeholder { color: inherit; opacity: 0.7; }
+  /* Hide scrollbars on webkit (matches design) */
+  *::-webkit-scrollbar { display: none; }
+  @media (max-width: 480px) {
+    html, body { background: #000; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<!-- Vanilla JS data + cohort logic — load FIRST, before Babel -->
+<script src="designs.js"></script>
+
+<!-- React + Babel via CDN (no bundler) -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+<!-- Components & primitives (from t2 design system) -->
+<script type="text/babel" src="icons.jsx"></script>
+<script type="text/babel" src="components.jsx"></script>
+<script type="text/babel" src="phoneframe.jsx"></script>
+
+<!-- Screens -->
+<script type="text/babel" src="HomeScreen.jsx"></script>
+<script type="text/babel" src="CustomizationScreen.jsx"></script>
+<script type="text/babel" src="DisclosureScreen.jsx"></script>
+<script type="text/babel" src="FinalScreen.jsx"></script>
+
+<!-- Mount last -->
+<script type="text/babel" src="App.jsx"></script>
+</body>
+</html>
