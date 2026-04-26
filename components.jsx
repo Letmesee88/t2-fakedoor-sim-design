@@ -12,7 +12,10 @@ t2Comp.StatusBar = function StatusBar({ dark = false }) {
       display: "flex", justifyContent: "space-between", alignItems: "center",
       fontFamily: "var(--t2-font-display)", color: fg, fontSize: 15, lineHeight: 1,
     }}>
-      <span>9:41</span>
+      <span style={{
+        fontFamily: '"SF Pro Text", "SF Pro", -apple-system, BlinkMacSystemFont, system-ui, sans-serif',
+        fontWeight: 400,
+      }}>9:41</span>
       <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
         {/* signal */}
         <svg width="18" height="11" viewBox="0 0 18 11" fill={fg}>

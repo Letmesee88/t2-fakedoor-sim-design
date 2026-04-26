@@ -52,7 +52,10 @@ function CustomizationScreen({ selected, onSelect, onBuy, onBack }) {
         }}>
           <window.IconChevronLeft size={22} stroke={2.2} />
         </button>
-        <span style={{ fontFamily: 'var(--t2-font-display)', fontSize: 17 }}>Дизайн и имя SIM</span>
+        <span style={{
+          fontFamily: 'var(--t2-font-display)', fontWeight: 800,
+          fontSize: 16, lineHeight: '18px',
+        }}>Дизайн и имя SIM</span>
       </div>
 
       {/* Scrollable content */}
@@ -63,8 +66,8 @@ function CustomizationScreen({ selected, onSelect, onBuy, onBack }) {
       }}>
         {/* SIM plaque preview (live updates with selection) */}
         <div style={{
-          height: 110, flexShrink: 0,
-          borderRadius: 20, overflow: 'hidden', position: 'relative',
+          height: 94, flexShrink: 0, margin: '0 12px',
+          borderRadius: 18, overflow: 'hidden', position: 'relative',
           backgroundImage: `url("${previewWide}")`,
           backgroundSize: 'cover', backgroundPosition: 'center',
           backgroundColor: '#1E1E1E',
@@ -75,9 +78,9 @@ function CustomizationScreen({ selected, onSelect, onBuy, onBack }) {
             position: 'absolute', inset: 0,
             background: 'linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.45) 100%)',
           }} />
-          <div style={{ position: 'relative', padding: '16px 18px', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-            <div style={{ fontFamily: 'var(--t2-font-body)', fontSize: 13, opacity: 0.95 }}>Мой номер</div>
-            <div style={{ fontFamily: 'var(--t2-font-display)', fontSize: 26, lineHeight: '30px', textShadow: '0 1px 4px rgba(0,0,0,0.3)' }}>
+          <div style={{ position: 'relative', padding: '12px 16px', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div className="t2-tiny" style={{ opacity: 0.95 }}>Мой номер</div>
+            <div style={{ fontFamily: 'var(--t2-font-display)', fontSize: 22, lineHeight: '26px', textShadow: '0 1px 4px rgba(0,0,0,0.3)' }}>
               +7 977 872 09 09
             </div>
           </div>
@@ -92,30 +95,6 @@ function CustomizationScreen({ selected, onSelect, onBuy, onBack }) {
             color: '#fff', fontFamily: 'var(--t2-font-body)', fontSize: 15,
           }}>Мой номер</div>
         </div>
-
-        {/* Gradients (decorative, disabled) */}
-        <section>
-          <h3 className="t2-h3" style={{ marginBottom: 12 }}>Градиенты</h3>
-          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-            {[
-              '#000', '#A7FC00', '#5DEDB0', '#27BDF5', '#7C5CE0', '#FF3495', '#F2F2F2',
-            ].map((c, i) => (
-              <button key={i} disabled aria-label="Градиент"
-                onClick={(e) => {
-                  e.currentTarget.animate(
-                    [{ transform: 'translateX(0)' }, { transform: 'translateX(-4px)' }, { transform: 'translateX(4px)' }, { transform: 'translateX(0)' }],
-                    { duration: 220 }
-                  );
-                }}
-                style={{
-                  width: 38, height: 38, borderRadius: 12, border: i === 0 ? '2px solid #2D4BFF' : 'none',
-                  background: c, cursor: 'not-allowed', padding: 0,
-                  outline: 'none',
-                }}
-              />
-            ))}
-          </div>
-        </section>
 
         {/* Exclusive designs — 3×3 grid */}
         <section>
@@ -147,24 +126,16 @@ function CustomizationScreen({ selected, onSelect, onBuy, onBack }) {
                     backgroundColor: '#222',
                   }} />
                   <div style={{
-                    fontFamily: 'var(--t2-font-body)', fontSize: 11,
-                    lineHeight: '13px', color: '#fff', textAlign: 'left',
-                    minHeight: 26,
+                    fontFamily: 'var(--t2-font-body)', fontWeight: 400,
+                    fontSize: 12, lineHeight: '15px',
+                    color: '#fff', textAlign: 'left', minHeight: 30,
                   }}>{d.name}</div>
-                  <div style={{
-                    fontFamily: 'var(--t2-font-display)', fontSize: 13,
-                    color: '#A7FC00', textAlign: 'left',
-                  }}>{price} ГБ</div>
+                  <div className="t2-h5" style={{ color: '#A7FC00', textAlign: 'left' }}>{price} ГБ</div>
                 </button>
               );
             })}
           </div>
         </section>
-
-        <div style={{
-          fontFamily: 'var(--t2-font-body)', fontSize: 12, color: '#9196A1',
-          textAlign: 'center', marginTop: 4,
-        }}>Доступно: 75 ГБ</div>
       </div>
 
       {/* Sticky CTA */}
@@ -175,12 +146,11 @@ function CustomizationScreen({ selected, onSelect, onBuy, onBack }) {
         <button
           onClick={handleBuy}
           disabled={!selectedDesign}
+          className="t2-button-label"
           style={{
             width: '100%', height: 52, borderRadius: 12, border: 'none',
-            background: selectedDesign ? '#A7FC00' : '#1E1E1E',
+            background: selectedDesign ? '#fff' : '#1E1E1E',
             color: selectedDesign ? '#000' : '#525763',
-            fontFamily: 'var(--t2-font-display)', fontSize: 16,
-            letterSpacing: '0.02em', textTransform: 'uppercase',
             cursor: selectedDesign ? 'pointer' : 'not-allowed',
             transition: 'background .15s ease, transform .12s ease',
           }}
