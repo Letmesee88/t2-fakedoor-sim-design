@@ -21,9 +21,9 @@ const DESIGNS = [
   { id: 'silver',    name: 'Жидкое серебро',       tier: 'premium', square: 'assets/skins/silver-square.png',    wide: 'assets/skins/silver-wide.png' },
 
   // hero tier — fixed 100 ГБ in all cohorts
-  { id: 'bat',       name: 'Летучая мышь (Герой)', tier: 'hero',    square: 'assets/skins/bat-square.png',       wide: 'assets/skins/bat-wide.png' },
-  { id: 'catmoon',   name: 'Лунный кот (Астронавт)', tier: 'hero',  square: 'assets/skins/catmoon-square.png',   wide: 'assets/skins/catmoon-wide.png' },
-  { id: 'hawk',      name: 'Ястреб (Авангард)',    tier: 'hero',    square: 'assets/skins/hawk-square.png',      wide: 'assets/skins/hawk-wide.png' },
+  { id: 'bat',       name: 'Герой',                tier: 'hero',    square: 'assets/skins/bat-square.png',       wide: 'assets/skins/bat-wide.png' },
+  { id: 'catmoon',   name: 'Астронавт',            tier: 'hero',    square: 'assets/skins/catmoon-square.png',   wide: 'assets/skins/catmoon-wide.png' },
+  { id: 'hawk',      name: 'Авангард',             tier: 'hero',    square: 'assets/skins/hawk-square.png',      wide: 'assets/skins/hawk-wide.png' },
 ];
 
 // ============================================================

@@ -23,8 +23,8 @@ function DisclosureScreen({ designId, onDone }) {
 
       <div style={{
         flex: 1, overflowY: 'auto', scrollbarWidth: 'none',
-        padding: '40px 20px 24px',
-        display: 'flex', flexDirection: 'column', justifyContent: 'center',
+        padding: '60px 20px 24px',
+        display: 'flex', flexDirection: 'column',
       }}>
         {/* hero image */}
         <img src="assets/Panda.png" alt="" style={{
