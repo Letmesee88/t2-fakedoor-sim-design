@@ -17,9 +17,8 @@ function DisclosureScreen({ designId, onDone }) {
   return (
     <div style={{
       flex: 1, background: 'var(--t2-sheet)', display: 'flex', flexDirection: 'column',
-      overflow: 'hidden', color: 'var(--t2-sheet-fg)',
+      overflow: 'hidden', color: 'var(--t2-sheet-fg)', paddingTop: 20,
     }}>
-      <window.StatusBar />
 
       <div style={{
         flex: 1, overflowY: 'auto', scrollbarWidth: 'none',

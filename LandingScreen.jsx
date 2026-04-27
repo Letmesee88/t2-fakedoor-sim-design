@@ -16,9 +16,8 @@ function LandingScreen({ onContinue, onBack }) {
   return (
     <div style={{
       flex: 1, background: 'var(--t2-sheet)', display: 'flex', flexDirection: 'column',
-      overflow: 'hidden', color: 'var(--t2-sheet-fg)',
+      overflow: 'hidden', color: 'var(--t2-sheet-fg)', paddingTop: 20,
     }}>
-      <window.StatusBar />
 
       {/* Header — back arrow only, no title (hero owns the page) */}
       <div style={{

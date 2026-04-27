@@ -36,9 +36,8 @@ function CustomizationScreen({ selected, onSelect, onBuy, onBack }) {
   return (
     <div style={{
       flex: 1, background: '#000', display: 'flex', flexDirection: 'column',
-      overflow: 'hidden', color: '#fff',
+      overflow: 'hidden', color: '#fff', paddingTop: 20,
     }}>
-      <window.StatusBar dark />
 
       {/* Header: back + title */}
       <div style={{
@@ -89,7 +88,7 @@ function CustomizationScreen({ selected, onSelect, onBuy, onBack }) {
           zIndex: 1,
         }}>
           {/* Transparent spacer — exposes plaque underneath when at top of scroll */}
-          <div style={{ height: 110 }} />
+          <div style={{ height: 120 }} />
 
           {/* Sheet — opaque BG covers plaque on scroll-up, rounded top edge */}
           <div style={{

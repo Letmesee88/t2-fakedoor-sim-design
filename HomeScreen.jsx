@@ -235,10 +235,9 @@ function HomeScreen({ onBannerTap }) {
 
   return (
     <div style={{
-      flex: 1, background: '#000', color: '#fff',
+      flex: 1, background: '#000', color: '#fff', paddingTop: 20,
       display: 'flex', flexDirection: 'column', overflow: 'hidden',
     }}>
-      <window.StatusBar dark />
       <window.NavBar dark hasNotif userName="Босс" />
 
       {/* Single scrollable area: Search → Stories → SIM cards → ★ White sheet.
@@ -272,7 +271,24 @@ function HomeScreen({ onBannerTap }) {
         }}>
           <window.SimCard variant="dark" label="Мой номер"      number="+7 977 872 09 09" />
           <window.SimCard variant="cool" label="Конс. Конс."    number="+7 999 421 11 02" />
-          <window.SimCard variant="warm" showLeaf label="+ Добавить SIM" number="eSIM или пластик" />
+          {/* "Add number" tile — white card, centered gray circle + plus + label */}
+          <button style={{
+            flex: '0 0 auto', width: 327, height: 110, borderRadius: 20,
+            background: '#fff', color: '#000', border: 'none', cursor: 'pointer',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+            gap: 6,
+          }}>
+            <div style={{
+              width: 36, height: 36, borderRadius: '50%', background: '#F2F2F2',
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+              color: '#000',
+            }}>
+              <window.IconPlus size={18} stroke={2.4} />
+            </div>
+            <span style={{
+              fontFamily: 'var(--t2-font-body)', fontSize: 13, fontWeight: 500,
+            }}>Добавить номер</span>
+          </button>
         </div>
 
         {/* ★ WHITE SHEET */}
